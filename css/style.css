@@ -5,5 +5,130 @@
     box-sizing: border-box;
     
     font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
+:root {
+    --white : #FFF;
+    --black : #000;
+
+    --primary-blue : #084887;
+    --secondary-blue : #5296A5;
+    --accent-blue : #82DDF0;
+
+    --accent-color : #F9E7E7;
+    --dark-color : #111D13;
+
+}
+
+#header, #footer {
+    background-color: var(--primary-blue);
+    padding: 1em 0;
+}
+
+#header h1 {
+    text-align: center;
+    font-size: 2em;
+    color: var(--accent-color);
+}
+
+#container {
+    background-color: var(--accent-color);
+    padding: 2em 0;
+}
+
+#container .calc-body {
+    background-color: var(--white);
+    padding: 2em 1em;
+
+    width: 40%;
+
+    margin: 2em auto;
+
+    border-radius: 1em;
+
+    box-shadow: 0 2px 1em 1px rgba(0, 0, 0, .25);
+}
+
+#container .calc-body p {
+    margin: 1em;
+}
+
+#container .calc-body #form-calc-suhu {
+    margin: 1em;
+}
+
+#container .calc-body #form-calc-suhu label {
+    display: block;
+    margin: 1em 0 .25em;
+    font-weight: bold;
+}
+
+#container .calc-body #form-calc-suhu input {
+    display: block;
+    width: 100%;
+    margin: .25em 0;
+    padding: .5em;
+    border: 1px solid rgba(0, 0, 0, .25);
+    border-radius: .5em;
+}
+
+#container .calc-body #form-calc-suhu #btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 1em 0;
+}
+
+#container .calc-body #form-calc-suhu button {
+    flex: 1;
+    padding: .5em 0;
+    border: none;
+    border-radius: .5em;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#container .calc-body #form-calc-suhu button:nth-child(2) {
+    margin: 0 1em;
+}
+
+#container .calc-body #form-calc-suhu textarea {
+    display: block;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, .25);
+    border-radius: .5em;
+    resize: none;
+}
+
+#container .calc-body #trivia-section {
+    margin: 1em;
+}
+
+#container .calc-body #trivia-section #convert-formula h2 {
+    font-size: 1.5em;
+    margin-bottom: .75em;
+}
+
+#container .calc-body #trivia-section #convert-formula hr {
+    margin-bottom: 1em;
+    opacity: 35%;
+}
+
+#container .calc-body #trivia-section #convert-formula p {
+    margin: 0;
+    text-align: justify;
+    font-size: 1.25em;
+}
+
+#container .calc-body #trivia-section #convert-formula p em b {
+    font-size: 1.8em;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#footer p{
+    text-align: center;
+    color: var(--accent-color);
+}
