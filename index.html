@@ -9,7 +9,63 @@
 </head>
 <body>
     
-    
+    <!-- Header -->
+    <header id="header">
+        <h1>Kalkulator Suhu</h1>
+    </header>
+
+    <!-- Content -->
+    <div id="container">
+
+        <div class="calc-body">
+            <p>
+                Masukkan suhu derajat Celcius (&deg;C) ke kotak dibawah,
+                lalu klik tombol konversi untuk mendapatkan hasil konversi
+                dalam bentuk Fahrenheit (&deg;F).
+            </p>
+            <form action="#" method="post" id="form-calc-suhu">
+
+                <div id="input-celcius">
+                    <label for="txt-input-celcius">Celcius (&deg;C)</label>
+                    <input type="text" name="txt-input-celcius" id="txt-input-celcius">
+                </div>
+
+                <div id="btn-group">
+                    <button id="convert" class="btn">Konversi</button>
+                    <button id="reset" class="btn">Reset</button>
+                    <button id="reverse" class="btn">Reverse</button>
+                </div>
+
+                <div id="input-fahrenheit">
+                    <label for="txt-input-fahrenheit">Fahrenheit (&deg;F)</label>
+                    <input type="text" name="txt-input-fahrenheit" id="txt-input-fahrenheit" readonly>
+                </div>
+
+                <div id="calc-method">
+                    <label for="txt-calc-method">Cara kalkulasi</label>
+                    <textarea name="txt-calc-method" id="txt-calc-method" rows="5"></textarea>
+                </div>
+
+            </form>
+            <div id="trivia-section">
+                <div id="convert-formula">
+                    <h2>Cara konversi dari Celcius (&deg;C) ke Fahrenheit (&deg;F)</h2>
+                    <hr>
+                    <p>
+                        Suhu <em><b>S</b></em> dalam derajat Fahrenheit (&deg;F) sama dengan
+                        suhu <em><b>S</b></em> dalam derajat Celcius (&deg;C) dikali 9/5
+                        ditambah 32.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+     <footer id="footer">
+        <p>&copy; 2025 Bagoes Ihsan Taufiqurrahman</p>
+     </footer>
 
 </body>
 </html>
