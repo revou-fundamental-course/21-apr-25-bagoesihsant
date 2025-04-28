@@ -12,36 +12,63 @@
     --white : #FFF;
     --black : #000;
 
-    --primary-blue : #084887;
-    --secondary-blue : #5296A5;
-    --accent-blue : #82DDF0;
+    --federal-blue : #03045E;
+    --marian-blue : #023E8A;
+    --honolulu-blue : #0077B6;
+    --blue-green : #0096C7;
+    --pacific-cyan : #00B4D8;
+    --vivid-sky-blue : #48CAE4;
+    --non-photo-blue : #90E0EF;
+    --light-non-photo-blue : #ADE8F4;
+    --light-cyan : #CAF0F8;
 
     --accent-color : #F9E7E7;
     --dark-color : #111D13;
-
 }
 
-#header, #footer {
-    background-color: var(--primary-blue);
-    padding: 1em 0;
+/* Template CSS Start */
+
+.arrow {
+    font-style: normal;
+    font-size: 1.25em;
+    margin-right: .25em;
+}
+
+.title {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.body {
+    text-align: justify;
+    margin: .5em;
+}
+
+/* Template CSS End */
+
+#header {
+    background-color: var(--honolulu-blue);
+    padding: .5em 0;
 }
 
 #header h1 {
-    text-align: center;
-    font-size: 2em;
-    color: var(--accent-color);
+    text-align: left;
+    font-size: 1.5em;
+    color: var(--white);
+    margin-left: 1em;
 }
 
 #container {
-    background-color: var(--accent-color);
-    padding: 2em 0;
+    background-color: rgba(173, 232, 244, .25);
+    padding: 4em 0;
 }
 
 #container .calc-body {
     background-color: var(--white);
     padding: 2em 1em;
 
-    width: 40%;
+    width: 30%;
 
     margin: 2em auto;
 
@@ -85,7 +112,7 @@
     padding: .5em 0;
     border: none;
     border-radius: .5em;
-    background-color: var(--primary-blue);
+    background-color: var(--blue-green);
     color: var(--white);
     font-weight: bold;
     cursor: pointer;
@@ -107,9 +134,77 @@
     margin: 1em;
 }
 
+#container .calc-body #trivia-section #suhu-explanation {
+    margin-bottom: 1em;
+}
 
+#container .calc-body #trivia-section #suhu-explanation .title h2{
+    font-size: 1.25em;
+}
+
+#container .calc-body #trivia-section #suhu-explanation .body,
+#container .calc-body #trivia-section #suhu-explanation .body p {
+    height: 0;
+    display: none;
+}
+
+#container .calc-body #trivia-section #convert-formula-celsius {
+    margin-bottom: 1em;
+}
+
+#container .calc-body #trivia-section #convert-formula-celsius .title h2{
+    font-size: 1.25em;
+}
+
+#container .calc-body #trivia-section #convert-formula-celsius .body .suhu-marker {
+    font-size: 1.5em;
+    font-weight: bold;
+    font-style: italic;
+}
+
+#container .calc-body #trivia-section #convert-formula-celsius .body,
+#container .calc-body #trivia-section #convert-formula-celsius p {
+    height: 0;
+    display: none;
+}
+
+#container .calc-body #trivia-section #convert-formula-celsius .body .first-conversion-formula sub {
+    font-weight: bold;
+    font-style: italic;
+}
+
+#container .calc-body #trivia-section #convert-formula-fahrenheit {
+    margin-bottom: 1em;
+}
+
+#container .calc-body #trivia-section #convert-formula-fahrenheit .title h2 {
+    font-size: 1.25em;
+}
+
+#container .calc-body #trivia-section #convert-formula-fahrenheit .body .suhu-marker {
+    font-size: 1.5em;
+    font-weight: bold;
+    font-style: italic;
+}
+
+#container .calc-body #trivia-section #convert-formula-fahrenheit .body .first-conversion-formula sub {
+    font-weight: bold;
+    font-style: italic;
+}
+
+#container .calc-body #trivia-section #convert-formula-fahrenheit .body,
+#container .calc-body #trivia-section #convert-formula-fahrenheit p {
+    height: 0;
+    display: none;
+}
+
+
+#footer {
+    background-color: var(--honolulu-blue);
+    padding: 1em;
+}
 
 #footer p{
     text-align: center;
-    color: var(--accent-color);
+    color: var(--white);
 }
