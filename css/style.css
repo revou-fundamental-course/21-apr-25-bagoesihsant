@@ -4,7 +4,6 @@
 
     box-sizing: border-box;
     
-    font-size: 16px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
@@ -24,7 +23,10 @@
 
     --accent-color : #F9E7E7;
     --dark-color : #111D13;
+    --button-hover : #0288D1;
+    --section-background : #F5FAFF;
 }
+
 
 /* Template CSS Start */
 
@@ -60,25 +62,31 @@
 }
 
 #container {
-    background-color: rgba(173, 232, 244, .25);
+    background: linear-gradient(to bottom, var(--honolulu-blue), var(--light-non-photo-blue));
     padding: 4em 0;
+    min-height: 89vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #container .calc-body {
     background-color: var(--white);
-    padding: 2em 1em;
-
-    width: 30%;
+    
+    padding: .25em;
+    width: 90%;
+    max-width: 500px;
 
     margin: 2em auto;
 
-    border-radius: 1em;
+    border-radius: 1.5em;
 
-    box-shadow: 0 2px 1em 1px rgba(0, 0, 0, .25);
+    box-shadow: 0 1em 2em .5em rgba(0, 0, 0, 0.1);
 }
 
 #container .calc-body p {
     margin: 1em;
+    text-align: justify;
 }
 
 #container .calc-body #form-calc-suhu {
@@ -95,38 +103,39 @@
     display: block;
     width: 100%;
     margin: .25em 0;
-    padding: .5em;
-    border: 1px solid rgba(0, 0, 0, .25);
-    border-radius: .5em;
+    padding: .75em;
+    border: 1px solid #CCC;
+    border-radius: .75em;
 }
 
 #container .calc-body #form-calc-suhu #btn-group {
     display: flex;
     flex-wrap: wrap;
+    gap: 1em;
     justify-content: space-between;
     margin: 1em 0;
 }
 
 #container .calc-body #form-calc-suhu button {
     flex: 1;
-    padding: .5em 0;
+    padding: .75em 0;
     border: none;
-    border-radius: .5em;
+    border-radius: .75em;
     background-color: var(--blue-green);
     color: var(--white);
     font-weight: bold;
     cursor: pointer;
 }
 
-#container .calc-body #form-calc-suhu button:nth-child(2) {
-    margin: 0 1em;
+#container .calc-body #form-calc-suhu button:hover {
+    background-color: var(--honolulu-blue);
 }
 
 #container .calc-body #form-calc-suhu textarea {
     display: block;
     width: 100%;
-    border: 1px solid rgba(0, 0, 0, .25);
-    border-radius: .5em;
+    border: 1px solid #CCC;
+    border-radius: .75em;
     resize: none;
 }
 
@@ -136,6 +145,7 @@
 
 #container .calc-body #trivia-section #suhu-explanation {
     margin-bottom: 1em;
+    cursor: pointer;
 }
 
 #container .calc-body #trivia-section #suhu-explanation .title h2{
@@ -144,12 +154,12 @@
 
 #container .calc-body #trivia-section #suhu-explanation .body,
 #container .calc-body #trivia-section #suhu-explanation .body p {
-    height: 0;
     display: none;
 }
 
 #container .calc-body #trivia-section #convert-formula-celsius {
     margin-bottom: 1em;
+    cursor: pointer;
 }
 
 #container .calc-body #trivia-section #convert-formula-celsius .title h2{
@@ -164,7 +174,6 @@
 
 #container .calc-body #trivia-section #convert-formula-celsius .body,
 #container .calc-body #trivia-section #convert-formula-celsius p {
-    height: 0;
     display: none;
 }
 
@@ -180,6 +189,7 @@
 
 #container .calc-body #trivia-section #convert-formula-fahrenheit {
     margin-bottom: 1em;
+    cursor: pointer;
 }
 
 #container .calc-body #trivia-section #convert-formula-fahrenheit .title h2 {
@@ -204,13 +214,12 @@
 
 #container .calc-body #trivia-section #convert-formula-fahrenheit .body,
 #container .calc-body #trivia-section #convert-formula-fahrenheit p {
-    height: 0;
     display: none;
 }
 
 
 #footer {
-    background-color: var(--honolulu-blue);
+    background-color: var(--light-non-photo-blue);
     padding: 1em;
 }
 
