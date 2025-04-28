@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalkulator Suhu</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js"></script>
 </head>
 <body>
     
@@ -25,7 +24,7 @@
                 dalam bentuk Fahrenheit (&deg;F).
             </p>
 
-            <form action="#" method="post" id="form-calc-suhu">
+            <form method="post" id="form-calc-suhu">
 
                 <div id="input-celsius">
                     <label for="txt-input-celsius">Celsius (&deg;C)</label>
@@ -40,12 +39,12 @@
 
                 <div id="input-fahrenheit">
                     <label for="txt-input-fahrenheit">Fahrenheit (&deg;F)</label>
-                    <input type="text" name="txt-input-fahrenheit" id="txt-input-fahrenheit" readonly>
+                    <input type="text" name="txt-input-fahrenheit" id="txt-input-fahrenheit" disabled>
                 </div>
 
                 <div id="calc-method">
                     <label for="txt-calc-method">Cara kalkulasi</label>
-                    <textarea name="txt-calc-method" id="txt-calc-method" rows="5"></textarea>
+                    <textarea name="txt-calc-method" id="txt-calc-method" rows="5" disabled></textarea>
                 </div>
 
             </form>
@@ -111,15 +110,17 @@
                 </div>
 
             </div>
-            
+
         </div>
 
     </div>
 
     <!-- Footer -->
-     <footer id="footer">
+    <footer id="footer">
         <p>&copy; 2025 Bagoes Ihsan Taufiqurrahman</p>
-     </footer>
+    </footer>
 
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
 </body>
 </html>
