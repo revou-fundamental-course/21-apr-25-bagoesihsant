@@ -137,6 +137,7 @@
     border: 1px solid #CCC;
     border-radius: .75em;
     resize: none;
+    padding: .75em;
 }
 
 #container .calc-body #trivia-section {
