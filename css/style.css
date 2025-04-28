@@ -47,6 +47,10 @@
     margin: .5em;
 }
 
+.none {
+    display: none;
+}
+
 /* Template CSS End */
 
 #header {
@@ -153,11 +157,6 @@
     font-size: 1.25em;
 }
 
-#container .calc-body #trivia-section #suhu-explanation .body,
-#container .calc-body #trivia-section #suhu-explanation .body p {
-    display: none;
-}
-
 #container .calc-body #trivia-section #convert-formula-celsius {
     margin-bottom: 1em;
     cursor: pointer;
@@ -171,11 +170,6 @@
     font-size: 1.5em;
     font-weight: bold;
     font-style: italic;
-}
-
-#container .calc-body #trivia-section #convert-formula-celsius .body,
-#container .calc-body #trivia-section #convert-formula-celsius p {
-    display: none;
 }
 
 #container .calc-body #trivia-section #convert-formula-celsius .body .first-conversion-formula sub {
@@ -212,12 +206,6 @@
     font-weight: bold;
     font-style: italic;
 }
-
-#container .calc-body #trivia-section #convert-formula-fahrenheit .body,
-#container .calc-body #trivia-section #convert-formula-fahrenheit p {
-    display: none;
-}
-
 
 #footer {
     background-color: var(--light-non-photo-blue);
