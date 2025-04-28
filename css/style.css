@@ -173,6 +173,11 @@
     font-style: italic;
 }
 
+#container .calc-body #trivia-section #convert-formula-celsius .body .second-conversion-formula sub {
+    font-weight: bold;
+    font-style: italic;
+}
+
 #container .calc-body #trivia-section #convert-formula-fahrenheit {
     margin-bottom: 1em;
 }
@@ -188,6 +193,11 @@
 }
 
 #container .calc-body #trivia-section #convert-formula-fahrenheit .body .first-conversion-formula sub {
+    font-weight: bold;
+    font-style: italic;
+}
+
+#container .calc-body #trivia-section #convert-formula-fahrenheit .body .second-conversion-formula sub {
     font-weight: bold;
     font-style: italic;
 }
