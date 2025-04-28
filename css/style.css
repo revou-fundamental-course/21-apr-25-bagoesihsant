@@ -107,26 +107,7 @@
     margin: 1em;
 }
 
-#container .calc-body #trivia-section #convert-formula h2 {
-    font-size: 1.5em;
-    margin-bottom: .75em;
-}
 
-#container .calc-body #trivia-section #convert-formula hr {
-    margin-bottom: 1em;
-    opacity: 35%;
-}
-
-#container .calc-body #trivia-section #convert-formula p {
-    margin: 0;
-    text-align: justify;
-    font-size: 1.25em;
-}
-
-#container .calc-body #trivia-section #convert-formula p em b {
-    font-size: 1.8em;
-    font-family: 'Times New Roman', Times, serif;
-}
 
 #footer p{
     text-align: center;
