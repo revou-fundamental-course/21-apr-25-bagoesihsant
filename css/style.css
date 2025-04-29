@@ -33,7 +33,16 @@
 .arrow {
     font-style: normal;
     font-size: 1.25em;
+    margin-top: .25em;
     margin-right: .25em;
+    transition: transform .25s ease;
+}
+
+.rotate {
+    margin-top: .25em;
+    margin-right: .25em;
+    transform: rotate(90deg);
+    transition: transform .25s ease;
 }
 
 .title {
@@ -45,10 +54,6 @@
 .body {
     text-align: justify;
     margin: .5em;
-}
-
-.none {
-    display: none;
 }
 
 /* Template CSS End */
@@ -79,7 +84,7 @@
     
     padding: .25em;
     width: 90%;
-    max-width: 500px;
+    max-width: 530px;
 
     margin: 2em auto;
 
@@ -148,22 +153,42 @@
     margin: 1em;
 }
 
-#container .calc-body #trivia-section #suhu-explanation {
-    margin-bottom: 1em;
+#container .calc-body #trivia-section #suhu-explanation .title {
     cursor: pointer;
 }
 
 #container .calc-body #trivia-section #suhu-explanation .title h2{
     font-size: 1.25em;
+    user-select: none;
 }
 
-#container .calc-body #trivia-section #convert-formula-celsius {
-    margin-bottom: 1em;
+#container .calc-body #trivia-section #suhu-explanation .body {
+    height: 0;
+    overflow-y: hidden;
+    transition: height .5s ease;
+}
+
+#container .calc-body #trivia-section #suhu-explanation .body.open {
+    height: 13em;
+}
+
+#container .calc-body #trivia-section #convert-formula-celsius .title {
     cursor: pointer;
 }
 
 #container .calc-body #trivia-section #convert-formula-celsius .title h2{
     font-size: 1.25em;
+    user-select: none;
+}
+
+#container .calc-body #trivia-section #convert-formula-celsius .body {
+    height: 0;
+    overflow-y: hidden;
+    transition: height .5s ease;
+}
+
+#container .calc-body #trivia-section #convert-formula-celsius .body.open {
+    height: 13em;
 }
 
 #container .calc-body #trivia-section #convert-formula-celsius .body .suhu-marker {
@@ -182,13 +207,23 @@
     font-style: italic;
 }
 
-#container .calc-body #trivia-section #convert-formula-fahrenheit {
-    margin-bottom: 1em;
+#container .calc-body #trivia-section #convert-formula-fahrenheit .title {
     cursor: pointer;
 }
 
 #container .calc-body #trivia-section #convert-formula-fahrenheit .title h2 {
     font-size: 1.25em;
+    user-select: none;
+}
+
+#container .calc-body #trivia-section #convert-formula-fahrenheit .body {
+    height: 0;
+    overflow-y: hidden;
+    transition: height .5s ease;
+}
+
+#container .calc-body #trivia-section #convert-formula-fahrenheit .body.open {
+    height: 13em;
 }
 
 #container .calc-body #trivia-section #convert-formula-fahrenheit .body .suhu-marker {
