@@ -1,9 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-
     box-sizing: border-box;
-    
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
@@ -25,6 +23,13 @@
     --dark-color : #111D13;
     --button-hover : #0288D1;
     --section-background : #F5FAFF;
+
+    --alert-danger-primary : #c00518;
+    --alert-danger-secondary : #C94D50;
+    --alert-danger-accent : #D67A7C;
+    --alert-danger : #E4A6A7;
+    --alert-danger-light : #F1D3D3;
+
 }
 
 
@@ -33,13 +38,11 @@
 .arrow {
     font-style: normal;
     font-size: 1.25em;
-    margin-top: .25em;
     margin-right: .25em;
     transition: transform .25s ease;
 }
 
 .rotate {
-    margin-top: .25em;
     margin-right: .25em;
     transform: rotate(90deg);
     transition: transform .25s ease;
@@ -57,6 +60,8 @@
 }
 
 /* Template CSS End */
+
+/* Main Content CSS Start */
 
 #header {
     background-color: var(--honolulu-blue);
@@ -81,15 +86,11 @@
 
 #container .calc-body {
     background-color: var(--white);
-    
     padding: .25em;
     width: 90%;
     max-width: 530px;
-
     margin: 2em auto;
-
     border-radius: 1.5em;
-
     box-shadow: 0 1em 2em .5em rgba(0, 0, 0, 0.1);
 }
 
@@ -250,4 +251,78 @@
 #footer p{
     text-align: center;
     color: var(--white);
+}
+
+/* Main Content CSS End */
+
+#alert-domain {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2em;
+}
+
+.alert-notif { 
+    min-height: 5em;
+    max-height: 20em;
+    width: 20em;
+    border: 3px solid var(--alert-danger-secondary);
+    border-radius: .75em;
+    margin: 2em;
+    background-color: var(--alert-danger-primary);
+    box-shadow: 0 .25em 2em .5em rgba(255, 255, 255, .15);
+    opacity: 1;
+    display: block;
+    transition: opacity .5s ease, display .5s ease;
+    transition-behavior: allow-discrete;
+}
+
+.alert-notif.closed {
+    opacity: 0;
+    display: none;
+}
+
+.alert-notif .alert-header {
+    border-bottom: 2px solid var(--alert-danger-secondary);
+    padding: .5em;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.alert-notif .alert-header .error {
+    display: block;
+    font-style: normal;
+    margin-right: .5em;
+    font-size: 1.25em;
+    color: var(--alert-danger-light);
+}
+
+.alert-notif .alert-header .alert-title {
+    display: block;
+    font-style: normal;
+    margin-right: auto;
+    font-size: 1.25em;
+    color: var(--alert-danger-light);
+}
+
+.alert-notif .alert-header .alert-close {
+    display: block;
+    margin-right: .5em;
+    font-style: normal;
+    font-size: 1.25em;
+    font-weight: bold;
+    text-align: center;
+    color: var(--alert-danger-light);
+    cursor: pointer;
+    user-select: none;
+}
+
+.alert-notif .alert-body {
+    padding: .5em;
+}
+
+.alert-notif .alert-body .alert-text {
+    font-size: 1em;
+    color: var(--alert-danger-light);
 }
