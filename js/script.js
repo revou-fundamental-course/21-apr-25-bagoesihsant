@@ -63,16 +63,19 @@ btnConversion.onclick = (event) => {
 
         if (tempDeg === "") {
             console.log("Input is empty.");
+            resetForm();
             return;
         }
 
         if (!degreeRegex.test(tempDeg)) {
             console.log("Input contain illegal character(s), plase input positive/negative number only.");
+            resetForm();
             return;
         }
 
         if (isNaN(parseFloat(tempDeg))) {
             console.log("Input is not a number.");
+            resetForm();
             return;
         }
 
@@ -87,16 +90,19 @@ btnConversion.onclick = (event) => {
 
         if (tempDeg === "") {
             console.log("Input is empty.");
+            resetForm();
             return;
         }
 
         if (!degreeRegex.test(tempDeg)) {
             console.log("Input contain illegal character(s), plase input positive/negative number only.");
+            resetForm();
             return;
         }
 
         if (isNaN(parseFloat(tempDeg))) {
             console.log("Input is not a number.");
+            resetForm();
             return;
         }
 
