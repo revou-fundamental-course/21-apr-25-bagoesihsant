@@ -16,6 +16,8 @@ let formButtonGroup = document.getElementById("btn-group");
 let textAreaMethod = document.getElementById("txt-calc-method");
 let textAreaGroup = document.getElementById("calc-method");
 
+let triviaSection = document.getElementById("trivia-section");
+
 // Form Buttons
 let btnConversion = document.getElementById("convert");
 let btnReset = document.getElementById("reset");
@@ -50,6 +52,8 @@ function calculateCelsiusToFahrenheit(tempDeg) {
 function calculateFahrenheitToCelsius(tempDeg) {
     return (tempDeg - 32) * 5/9;
 }
+
+// Main Function (temperature conversion)
 
 btnConversion.onclick = (event) => { 
 
@@ -160,3 +164,19 @@ btnReverse.onclick = (event) => {
 
     }
 };
+
+// Secondary function (animation, design, and miscellaneous thing(s))
+
+let triviaTitle = triviaSection.getElementsByClassName("trivia-title");
+
+for (let triviaIndex = 0; triviaIndex < triviaTitle.length; triviaIndex++) {
+    
+    let arrowsDetail = triviaTitle[triviaIndex].getElementsByClassName("arrow");
+    let bodysDetail = triviaTitle[triviaIndex].getElementsByClassName("body");
+
+    triviaTitle[triviaIndex].onclick = (event) => {
+        bodysDetail[0].classList.toggle("open");
+        arrowsDetail[0].classList.toggle("rotate");
+    }
+
+}
