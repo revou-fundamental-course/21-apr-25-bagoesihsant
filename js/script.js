@@ -235,7 +235,7 @@ for (let triviaIndex = 0; triviaIndex < triviaTitle.length; triviaIndex++) {
         arrowsDetail[0].classList.toggle("rotate");
     };
 
-}
+};
 
 document.addEventListener('click', (event) => {
 
