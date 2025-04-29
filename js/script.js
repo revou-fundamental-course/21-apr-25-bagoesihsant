@@ -30,6 +30,7 @@ let celsiusToFahrenheit = true;
 
 // Miscellaneous Variable(s)
 const degreeSymbol = String.fromCharCode(176);
+const degreeRegex = /^[\d\-.]+$/;
 
 // Function(s)
 
@@ -55,23 +56,53 @@ btnConversion.onclick = (event) => {
     // Prevent form from input
     event.preventDefault();
 
-    
-
     // Check app current condition
     if (celsiusToFahrenheit) {
 
         tempDeg = inputCelsius.value;
-        resultTempDeg = calculateCelsiusToFahrenheit(tempDeg);
 
-        inputFahrenheit.value = resultTempDeg;
+        if (tempDeg === "") {
+            console.log("Input is empty.");
+            return;
+        }
+
+        if (!degreeRegex.test(tempDeg)) {
+            console.log("Input contain illegal character(s), plase input positive/negative number only.");
+            return;
+        }
+
+        if (isNaN(parseFloat(tempDeg))) {
+            console.log("Input is not a number.");
+            return;
+        }
+
+        resultTempDeg = calculateCelsiusToFahrenheit(parseFloat(tempDeg).toFixed(2));
+
+        inputFahrenheit.value = parseFloat(resultTempDeg).toFixed(2);
         textAreaMethod.value = `(${tempDeg} ${degreeSymbol}C x 9/5) + 32 = ${resultTempDeg} ${degreeSymbol}F`
 
     } else {
 
         tempDeg = inputFahrenheit.value;
-        resultTempDeg = calculateFahrenheitToCelsius(tempDeg);
 
-        inputCelsius.value = resultTempDeg;
+        if (tempDeg === "") {
+            console.log("Input is empty.");
+            return;
+        }
+
+        if (!degreeRegex.test(tempDeg)) {
+            console.log("Input contain illegal character(s), plase input positive/negative number only.");
+            return;
+        }
+
+        if (isNaN(parseFloat(tempDeg))) {
+            console.log("Input is not a number.");
+            return;
+        }
+
+        resultTempDeg = calculateFahrenheitToCelsius(parseFloat(tempDeg).toFixed(2));
+
+        inputCelsius.value = parseFloat(resultTempDeg).toFixed(2);
         textAreaMethod.value = `(${tempDeg} ${degreeSymbol}F - 32) * 5/9 = ${resultTempDeg} ${degreeSymbol}C`;
 
     }
@@ -95,9 +126,11 @@ btnReverse.onclick = (event) => {
     if (celsiusToFahrenheit) {
         celsiusToFahrenheit = false;
 
+        // Change enabled input
         inputCelsius.disabled = true;
         inputFahrenheit.disabled = false;
 
+        // Reverse input(s) position.
         formCalculator.removeChild(inputGroupCelsius);
         formCalculator.removeChild(inputGroupFahrenheit);
 
@@ -108,9 +141,11 @@ btnReverse.onclick = (event) => {
     } else {
         celsiusToFahrenheit = true;
 
+        // Change enabled input
         inputCelsius.disabled = false;
         inputFahrenheit.disabled = true;
 
+        // Reverse input(s) position.
         formCalculator.removeChild(inputGroupCelsius);
         formCalculator.removeChild(inputGroupFahrenheit);
 
