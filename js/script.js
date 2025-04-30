@@ -77,12 +77,34 @@ function hasClass(elem, className) {
     return elem.className.split(" ").indexOf(className) > -1;
 }
 
-function calculateCelsiusToFahrenheit(tempDeg) {
+function formulaCelsiusToFahrenheit(tempDeg) {
     return (tempDeg * 9/5) + 32;
 }
 
-function calculateFahrenheitToCelsius(tempDeg) {
+function formulaFahrenheitToCelsius(tempDeg) {
     return (tempDeg - 32) * 5/9;
+}
+
+function calculateCelsiusToFahrenheit() {
+    tempDeg = inputCelsius.value;
+
+    if(!validate(tempDeg)){ return; };
+
+    resultTempDeg = formulaCelsiusToFahrenheit(parseFloat(tempDeg).toFixed(2));
+
+    inputFahrenheit.value = parseFloat(resultTempDeg).toFixed(2);
+    textAreaMethod.value = `(${tempDeg}${degreeSymbol}C x 9/5) + 32 = ${parseFloat(resultTempDeg).toFixed(2)} ${degreeSymbol}F`;
+}
+
+function calculateFahrenheitToCelsius() {
+    tempDeg = inputFahrenheit.value;
+
+    if(!validate(tempDeg)){ return; };
+
+    resultTempDeg = formulaFahrenheitToCelsius(parseFloat(tempDeg).toFixed(2));
+
+    inputCelsius.value = parseFloat(resultTempDeg).toFixed(2);
+    textAreaMethod.value = `(${tempDeg}${degreeSymbol}F - 32) * 5/9 = ${parseFloat(resultTempDeg).toFixed(2)} ${degreeSymbol}C`;
 }
 
 function closeNotif(element) {
@@ -157,28 +179,13 @@ btnConversion.onclick = (event) => {
     // Check app current conditions
     if (celsiusToFahrenheit) {
 
-        tempDeg = inputCelsius.value;
-
-        if(!validate(tempDeg)){ return; };
-
-        resultTempDeg = calculateCelsiusToFahrenheit(parseFloat(tempDeg).toFixed(2));
-
-        inputFahrenheit.value = parseFloat(resultTempDeg).toFixed(2);
-        textAreaMethod.value = `(${tempDeg}${degreeSymbol}C x 9/5) + 32 = ${resultTempDeg} ${degreeSymbol}F`
+        calculateCelsiusToFahrenheit();
 
     } else {
 
-        tempDeg = inputFahrenheit.value;
+        calculateFahrenheitToCelsius();
 
-        if(!validate(tempDeg)){ return; };
-
-
-        resultTempDeg = calculateFahrenheitToCelsius(parseFloat(tempDeg).toFixed(2));
-
-        inputCelsius.value = parseFloat(resultTempDeg).toFixed(2);
-        textAreaMethod.value = `(${tempDeg}${degreeSymbol}F - 32) * 5/9 = ${resultTempDeg} ${degreeSymbol}C`;
-
-    }
+    };
 
 };
 
@@ -186,7 +193,6 @@ btnReset.onclick = (event) => {
  
     // Prevent form from input
     event.preventDefault();
-
     resetForm();
 }
 
@@ -197,9 +203,9 @@ btnReverse.onclick = (event) => {
 
     // Change current app condition
     if (celsiusToFahrenheit) {
-        celsiusToFahrenheit = false;
 
-        if(!validate(tempDeg)){ return };
+        // Fahrenheit to Celsius
+        celsiusToFahrenheit = false;
 
         // Change enabled input
         inputCelsius.disabled = true;
@@ -212,13 +218,21 @@ btnReverse.onclick = (event) => {
         formCalculator.insertBefore(inputGroupFahrenheit, formButtonGroup);
         formCalculator.insertBefore(inputGroupCelsius, textAreaGroup);
 
-        textAreaMethod.value = `(${resultTempDeg}${degreeSymbol}F - 32) * 5/9 = ${tempDeg} ${degreeSymbol}C`;
+        // Validation and Extra Calculations
+        if (inputFahrenheit.value === "") {
+            resetForm();
+            return;
+        }else {
+            calculateFahrenheitToCelsius();
+        };
+
+        textAreaMethod.value = `(${parseFloat(resultTempDeg).toFixed(2)}${degreeSymbol}F - 32) * 5/9 = ${tempDeg} ${degreeSymbol}C`;
 
 
     } else {
-        celsiusToFahrenheit = true;
 
-        if(!validate(tempDeg)){ return };
+        // Celsius to Fahrenheit
+        celsiusToFahrenheit = true;
 
         // Change enabled input
         inputCelsius.disabled = false;
@@ -231,7 +245,14 @@ btnReverse.onclick = (event) => {
         formCalculator.insertBefore(inputGroupCelsius, formButtonGroup);
         formCalculator.insertBefore(inputGroupFahrenheit, textAreaGroup);
 
-        textAreaMethod.value = `(${resultTempDeg}${degreeSymbol}C x 9/5) + 32 = ${tempDeg} ${degreeSymbol}F`;
+        if (inputCelsius.value === "") {
+            resetForm();
+            return;
+        } else {
+            calculateCelsiusToFahrenheit();
+        };
+
+        textAreaMethod.value = `(${parseFloat(resultTempDeg).toFixed(2)}${degreeSymbol}C x 9/5) + 32 = ${tempDeg} ${degreeSymbol}F`;
 
     }
 };
