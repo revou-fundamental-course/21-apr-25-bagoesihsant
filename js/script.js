@@ -24,8 +24,8 @@ let btnReset = document.getElementById("reset");
 let btnReverse = document.getElementById("reverse");
 
 // Result Variables
-let tempDeg;
-let resultTempDeg;
+let tempDeg = undefined;
+let resultTempDeg = undefined;
 
 // Set app condition
 let celsiusToFahrenheit = true;
@@ -43,6 +43,34 @@ function resetForm() {
 
     tempDeg = undefined;
     resultTempDeg = undefined;
+}
+
+function validate(tempDeg) {
+    if (tempDeg === "") {
+        alertDomain.appendChild(createError("Input kosong."));
+        resetForm();
+        return false;
+    };
+
+    if (tempDeg === undefined) {
+        alertDomain.appendChild(createError("Input kosong."));
+        resetForm();
+        return false;
+    }
+
+    if (!degreeRegex.test(tempDeg)) {
+        alertDomain.appendChild(createError("Input mengandung karakter illegal, harap masukkan hanya angka positif atau negatif."));
+        resetForm();
+        return false;
+    };
+
+    if (isNaN(parseFloat(tempDeg))) {
+        alertDomain.appendChild(createError("Input bukan angka"));
+        resetForm();
+        return false;
+    };
+
+    return true;
 }
 
 function hasClass(elem, className) {
@@ -105,6 +133,17 @@ function createError(errorMessage) {
     alertBody.appendChild(alertHeader);
     alertBody.appendChild(alertNotifBody);
 
+    alertCloseSymbol.onclick = () => {
+        alertBody.classList.toggle("closed"); 
+    };
+
+    setTimeout(() => {
+        alertBody.classList.toggle("closed");
+        setTimeout(() => { 
+            alertDomain.removeChild(alertBody);  
+        }, 1000);
+    }, 3000);
+
     return alertBody;
 }
 
@@ -115,61 +154,29 @@ btnConversion.onclick = (event) => {
     // Prevent form from input
     event.preventDefault();
 
-    // Check app current condition
+    // Check app current conditions
     if (celsiusToFahrenheit) {
 
         tempDeg = inputCelsius.value;
 
-        if (tempDeg === "") {
-            alertDomain.appendChild(createError("Input kosong."));
-            resetForm();
-            return;
-        }
-
-        if (!degreeRegex.test(tempDeg)) {
-            alertDomain.appendChild(createError("Input mengandung karakter illegal, harap masukkan hanya angka positif atau negatif."));
-            resetForm();
-            return;
-        }
-
-        if (isNaN(parseFloat(tempDeg))) {
-            alertDomain.appendChild(createError("Input bukan angka"));
-            resetForm();
-            return;
-        }
+        if(!validate(tempDeg)){ return; };
 
         resultTempDeg = calculateCelsiusToFahrenheit(parseFloat(tempDeg).toFixed(2));
 
         inputFahrenheit.value = parseFloat(resultTempDeg).toFixed(2);
-        textAreaMethod.value = `(${tempDeg} ${degreeSymbol}C x 9/5) + 32 = ${resultTempDeg} ${degreeSymbol}F`
+        textAreaMethod.value = `(${tempDeg}${degreeSymbol}C x 9/5) + 32 = ${resultTempDeg} ${degreeSymbol}F`
 
     } else {
 
         tempDeg = inputFahrenheit.value;
 
-        if (tempDeg === "") {
-            alertDomain.appendChild(createError("Input kosong."));
-            resetForm();
-            return;
-        }
-
-        if (!degreeRegex.test(tempDeg)) {
-            alertDomain.appendChild(createError("Input mengandung karakter illegal, harap masukkan hanya angka positif atau negatif."));
-            resetForm();
-            return;
-        }
-
-        if (isNaN(parseFloat(tempDeg))) {
-            alertDomain.appendChild(createError("Input bukan angka"));
-            resetForm();
-            return;
-        }
+        if(!validate(tempDeg)){ return; };
 
 
         resultTempDeg = calculateFahrenheitToCelsius(parseFloat(tempDeg).toFixed(2));
 
         inputCelsius.value = parseFloat(resultTempDeg).toFixed(2);
-        textAreaMethod.value = `(${tempDeg} ${degreeSymbol}F - 32) * 5/9 = ${resultTempDeg} ${degreeSymbol}C`;
+        textAreaMethod.value = `(${tempDeg}${degreeSymbol}F - 32) * 5/9 = ${resultTempDeg} ${degreeSymbol}C`;
 
     }
 
@@ -192,6 +199,8 @@ btnReverse.onclick = (event) => {
     if (celsiusToFahrenheit) {
         celsiusToFahrenheit = false;
 
+        if(!validate(tempDeg)){ return };
+
         // Change enabled input
         inputCelsius.disabled = true;
         inputFahrenheit.disabled = false;
@@ -203,9 +212,13 @@ btnReverse.onclick = (event) => {
         formCalculator.insertBefore(inputGroupFahrenheit, formButtonGroup);
         formCalculator.insertBefore(inputGroupCelsius, textAreaGroup);
 
+        textAreaMethod.value = `(${resultTempDeg}${degreeSymbol}F - 32) * 5/9 = ${tempDeg} ${degreeSymbol}C`;
+
 
     } else {
         celsiusToFahrenheit = true;
+
+        if(!validate(tempDeg)){ return };
 
         // Change enabled input
         inputCelsius.disabled = false;
@@ -217,6 +230,8 @@ btnReverse.onclick = (event) => {
 
         formCalculator.insertBefore(inputGroupCelsius, formButtonGroup);
         formCalculator.insertBefore(inputGroupFahrenheit, textAreaGroup);
+
+        textAreaMethod.value = `(${resultTempDeg}${degreeSymbol}C x 9/5) + 32 = ${tempDeg} ${degreeSymbol}F`;
 
     }
 };
@@ -236,19 +251,3 @@ for (let triviaIndex = 0; triviaIndex < triviaTitle.length; triviaIndex++) {
     };
 
 };
-
-document.addEventListener('click', (event) => {
-
-    if (hasClass(event.target, 'alert-close')) {
-
-        let alertNotif = event.target.parentElement.parentElement;
-
-        event.target.onclick = () => {
-            alertNotif.classList.toggle("closed");
-        };
-
-        setTimeout(() => { alertNotif.classList.toggle("closed"); }, 2000);
-
-    };
-
-});
